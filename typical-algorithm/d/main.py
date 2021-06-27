@@ -1,4 +1,4 @@
-from collections import deque
+import heapq
 
 N, M = map(int, input().split())
 
@@ -8,23 +8,26 @@ for i in range(M):
     u, v, c = map(int, input().split())
     G[u].append([v, c])
 
-cost = [10**8 for i in range(N)]
-cost[0] = 0
+dist = [-1 for i in range(N)]
+dist[0] = 0
 
-visited = [False] * N
-visited[0] = True
+Q = []
+heapq.heappush(Q, (0, 0))
 
-Q = deque()
-
-Q.append(0)
+done = [False] * N
 
 while len(Q) > 0:
-    i = Q.popleft()
+    d, i = heapq.heappop(Q)
 
-    for j, c in G[i]:
-        cost[j] = min(cost[j], cost[i] + c)
-        if not visited[j]:
-            Q.append(j)
-        visited[j] = True
+    if done[i]:
+        continue
 
-print(cost[N-1])
+    done[i] = True
+
+    for (j, c) in G[i]:
+
+        if dist[j] == -1 or dist[j] > dist[i] + c:
+            dist[j] = dist[i] + c
+            heapq.heappush(Q, (dist[j], j))
+
+print(dist[N-1])
