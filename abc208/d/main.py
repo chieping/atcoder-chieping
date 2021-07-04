@@ -17,10 +17,7 @@ for k in range(N):
     for x in range(N):
         for y in range(N):
             dist[x][y] = min(dist[x][y], dist[x][k] + dist[k][y])
-
-    for i in range(N):
-        for j in range(N):
-            if dist[i][j] != INF:
-                ans += dist[i][j]
+            if dist[x][y] != INF:
+                ans += dist[x][y]
 
 print(ans)
