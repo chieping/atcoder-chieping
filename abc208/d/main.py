@@ -1,21 +1,12 @@
-
-
 INF = 10**18
 
 N, M = map(int, input().split())
 
-
-dist = []
-for i in range(N):
-    dist.append([])
-    for j in range(N):
-        dist[i].append(INF)
+dist = [[INF] * N for i in range(N)]
 
 for i in range(M):
     a, b, c = map(int, input().split())
-    a -= 1
-    b -= 1
-    dist[a][b] = c
+    dist[a-1][b-1] = c
 
 ans = 0
 
@@ -33,7 +24,3 @@ for k in range(N):
                 ans += dist[i][j]
 
 print(ans)
-
-
-
-    
