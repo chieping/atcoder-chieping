@@ -9,13 +9,22 @@
       "id": "past202004_a",
       "label": "A",
       "title": "Elevator",
-      "url": "https://atcoder.jp/contests/past202004-open/tasks/past202004_a"
+      "url": "https://atcoder.jp/contests/past202004-open/tasks/past202004_a",
+      "directory": {
+        "path": "a",
+        "submit": "main.py"
+      }
     },
     {
       "id": "past202004_b",
       "label": "B",
       "title": "Plurality Voting",
-      "url": "https://atcoder.jp/contests/past202004-open/tasks/past202004_b"
+      "url": "https://atcoder.jp/contests/past202004-open/tasks/past202004_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "past202004_c",
@@ -50,7 +59,12 @@
       "id": "past202004_g",
       "label": "G",
       "title": "String Query",
-      "url": "https://atcoder.jp/contests/past202004-open/tasks/past202004_g"
+      "url": "https://atcoder.jp/contests/past202004-open/tasks/past202004_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "past202004_h",

@@ -1,12 +1,20 @@
-N, M = map(int, input().split())
+from collections import defaultdict
 
-strN = str(N)
-l = len(strN)
+N, M = input().split()
+K = int(M)
 
-edge = []
+INF = K + 1
 
-for i in range(l, -1, -1):
-    n = int(l[i])
-    
+dp = defaultdict(int)
+eq_prod = 1
 
+for i in range(len(N)):
+    digit = ord(N[i]) - ord('0')
+    nxt = defaultdict(int)
+
+    # less -> less
+    for prod, val in dp.items():
+        for d in range(10):
+            nxt_prod = min(INF, prod * d)
+            n
     
