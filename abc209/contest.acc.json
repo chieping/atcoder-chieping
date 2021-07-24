@@ -53,23 +53,13 @@
       "id": "abc209_e",
       "label": "E",
       "title": "Shiritori",
-      "url": "https://atcoder.jp/contests/abc209/tasks/abc209_e",
-      "directory": {
-        "path": "e",
-        "testdir": "test",
-        "submit": "main.py"
-      }
+      "url": "https://atcoder.jp/contests/abc209/tasks/abc209_e"
     },
     {
       "id": "abc209_f",
       "label": "F",
       "title": "Deforestation",
-      "url": "https://atcoder.jp/contests/abc209/tasks/abc209_f",
-      "directory": {
-        "path": "f",
-        "testdir": "test",
-        "submit": "main.py"
-      }
+      "url": "https://atcoder.jp/contests/abc209/tasks/abc209_f"
     }
   ]
 }
