@@ -9,7 +9,12 @@
       "id": "past202005_a",
       "label": "A",
       "title": "Case Sensitive",
-      "url": "https://atcoder.jp/contests/past202005-open/tasks/past202005_a"
+      "url": "https://atcoder.jp/contests/past202005-open/tasks/past202005_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "past202005_b",
@@ -62,7 +67,12 @@
       "id": "past202005_i",
       "label": "I",
       "title": "Matrix Operations",
-      "url": "https://atcoder.jp/contests/past202005-open/tasks/past202005_i"
+      "url": "https://atcoder.jp/contests/past202005-open/tasks/past202005_i",
+      "directory": {
+        "path": "i",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "past202005_j",
