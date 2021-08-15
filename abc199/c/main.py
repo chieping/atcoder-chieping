@@ -9,13 +9,10 @@ for i in range(Q):
     b -= 1
     if t == 1:
         if rev:
-            S[(a+N)%(N*2)], S[(b+N)%(N*2)] = S[(b+N)%(N*2)], S[(a+N)%(N*2)]
-        else:
-            S[a], S[b] = S[b], S[a]
+            a = (a+N)%(N*2)
+            b = (b+N)%(N*2)
+        S[a], S[b] = S[b], S[a]
     else:
         rev = not rev
 
-if rev:
-    print(''.join(S[N:] + S[0:N]))
-else:
-    print(''.join(S))
+print(''.join(S[N:] + S[0:N] if rev else S))
