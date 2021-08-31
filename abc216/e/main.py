@@ -1,31 +1,37 @@
-from bisect import bisect_left
-
-
 N, K = map(int, input().split())
 A = list(map(int, input().split()))
-B = []
-for a in A:
-    B.extend(range(1, a+1))
-B.sort()
 
-if len(B) <= K:
-    print(sum(B))
+if sum(A) <= K:
+    ans = 0
+    for a in A:
+        # 等差数列の和
+        ans += a * (a+1) // 2
+    print(ans)
     exit()
 
-l = 1
-r = max(A)
-while r - l > 1:
-    m = (l + r) // 2
+def ok(line):
+    cnt = 0
+    for a in A:
+        if (a >= line):
+            cnt += a - line
+    return cnt <= K
 
-    # Bに含まれるm以上の値の数はK以下か
-    if B[-K] >= m:
-        l = m
+bottom = 0
+top = max(A)
+
+while top - bottom > 1:
+    mid = (top + bottom) // 2
+    if ok(mid):
+        top = mid
     else:
-        r = m
+        bottom = mid
 
-i = bisect_left(B, r)
-ans = sum(B[i:])
-picked = len(B) - i
-ans += (K - picked) * (r-1)
+line = top
+ans = 0
+for a in A:
+    if a >= line:
+        K -= a - line
+        ans += (line + 1 + a) * (a - line) // 2
 
+ans += K * line
 print(ans)
