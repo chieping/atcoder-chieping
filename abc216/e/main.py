@@ -1,28 +1,31 @@
-import heapq
+from bisect import bisect_left
 
 
 N, K = map(int, input().split())
-A = list(map(lambda x: int(x) * -1, input().split()))
-A.sort(reverse=False)
-ans = 0
+A = list(map(int, input().split()))
+B = []
+for a in A:
+    B.extend(range(1, a+1))
+B.sort()
 
-for i in range(K):
-    m = heapq.heappop(A)
-    if m >= 0:
-        heapq.heappush(m)
-        continue
+if len(B) <= K:
+    print(sum(B))
+    exit()
 
-    m *= -1
-    m2 = heapq.heappop(A)
-    m2 *= -1
-    s = m-m2
-    
-    ans = ans + (m2*s+1) + (sum(range(0, s+1)))
-    heapq.heappush(A, (m-s) * -1)
-    heapq.heappush(A, m2 * -1)
+l = 1
+r = max(A)
+while r - l > 1:
+    m = (l + r) // 2
+
+    # Bに含まれるm以上の値の数はK以下か
+    if B[-K] >= m:
+        l = m
+    else:
+        r = m
+
+i = bisect_left(B, r)
+ans = sum(B[i:])
+picked = len(B) - i
+ans += (K - picked) * (r-1)
 
 print(ans)
-
-        
-
-
