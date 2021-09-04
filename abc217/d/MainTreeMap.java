@@ -1,7 +1,8 @@
 import java.util.Scanner;
 import java.util.TreeMap;
 
-public class Main {
+public class MainTreeMap {
+//public class Main {
     public static void main(String[] args) {
         try (var sc = new Scanner(System.in)) {
             var L = sc.nextInt();
