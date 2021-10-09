@@ -18,17 +18,16 @@ def janken(a, b):
         return (1, 0)
     elif a == 'P' and b == 'C':
         return (0, 1)
-    
+
 
 for j in range(M):
-    res.sort()
     for i in range(0, 2*N, 2):
-        a = A[res[i][1]][j]
-        b = A[res[i+1][1]][j]
-        s = janken(a, b)
-        res[i][0] -= s[0]
-        res[i+1][0] -= s[1]
+        p1 = res[i][1]
+        p2 = res[i+1][1]
+        s1, s2 = janken(A[p1][j], A[p2][j])
+        res[i][0] -= s1
+        res[i+1][0] -= s2
+    res.sort()
 
-res.sort()
-for j in range(len(res)):
-    print(res[j][1]+1)
+for _, i in res:
+    print(i+1)
