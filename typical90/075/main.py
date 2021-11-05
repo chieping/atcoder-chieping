@@ -1,6 +1,5 @@
 import math
-ON = int(input())
-N = ON
+N = int(input())
 factors = []
 i = 1
 while i*i <= N:
@@ -10,7 +9,7 @@ while i*i <= N:
     while N % i == 0:
         factors.append(i)
         N //= i
-if N != 1 and ON != N:
+if N != 1:
     factors.append(N)
 
 ans = 0
