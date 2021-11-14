@@ -1,30 +1,34 @@
-from collections import deque
+from union_find import UnionFind
+
 H, W = map(int, input().split())
 Q = int(input())
-cells = [[False]*W for i in range(H)]
+cells = [[False] * 2009 for _ in range(2009)]
+uf = UnionFind(H*W)
+
+def query1(r, c):
+    for ar, ac in ((r+1, c), (r, c+1), (r-1, c), (r, c-1)):
+        if cells[ar][ac] == False:
+            continue
+        hash1 = (r-1)*W + (c-1)
+        hash2 = (ar-1)*W + (ac-1)
+        uf.union(hash1, hash2)
+    cells[r][c] = True
+
+def query2(ra, ca, rb, cb):
+    if cells[ra][ca] == False or cells[rb][cb] == False:
+        return False
+    hash1 = (ra-1)*W + (ca-1)
+    hash2 = (rb-1)*W + (cb-1)
+    return uf.same(hash1, hash2)
+
 for _ in range(Q):
     q = list(map(int, input().split()))
     if q[0] == 1:
-        r, c = (x-1 for x in q[1:])
-        cells[r][c] = True
+        query1(*q[1:])
+
     elif q[0] == 2:
-        ra, ca, rb, cb = (x-1 for x in q[1:])
-        if not (cells[ra][ca] and cells[rb][cb]):
-            print('No')
+        ans = query2(*q[1:])
+        if ans:
+            print('Yes')
         else:
-            q = deque()
-            visited = [[False]*W for i in range(H)]
-            visited[ra][ca] = True
-            q.append((ra, ca))
-            while len(q) > 0:
-                r, c = q.pop()
-                for rnext, cnext in ((r+1, c), (r, c+1), (r-1, c), (r, c-1)):
-                    if (not 0 <= rnext < H) or (not 0 <= cnext < W):
-                        continue
-                    if cells[rnext][cnext] and not visited[rnext][cnext]:
-                        visited[rnext][cnext] = True
-                        q.append((rnext, cnext))
-            if visited[rb][cb]:
-                print('Yes')
-            else:
-                print('No')
+            print('No')
