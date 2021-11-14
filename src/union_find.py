@@ -26,5 +26,8 @@ class UnionFind:
     def roots(self):
         return [i for i, x in enumerate(self.parents) if x < 0]
 
+    def same(self, x, y):
+        return self.find(x) == self.find(y)
+
     def union_hook(self, x, y):
         pass
