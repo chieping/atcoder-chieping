@@ -1,18 +1,8 @@
 N, K = map(int, input().split())
-P = [(sum(map(int, input().split())), i) for i in range(N)]
-P.sort()
-
-kijun = P[-K][0]
-
-ans = []
+P = [sum(map(int, input().split())) for _ in range(N)]
+T = sorted(P)[-K]
 for i in range(N):
-    if (P[i][0] + 300) >= kijun:
-        a = 'Yes'
+    if P[i] + 300 >= T:
+        print('Yes')
     else:
-        a = 'No'
-    ans.append((P[i][1], a))
-
-ans.sort()
-
-for i in range(N):
-    print(ans[i][1])
+        print('No')
