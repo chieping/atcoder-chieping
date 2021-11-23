@@ -14,18 +14,15 @@ used = [[False] * 20 for _ in range(20)]
 def dfs(i, j, a):
     if i == H and j == W:
         return 1 if a == 0 else 0
+    if j > W:
+        return dfs(i+1, 1, a)
     
     ret = 0
     # 横置き
     if a > 0 and used[i][j] == False and used[i][j+1] == False and j+1 <= W:
         used[i][j] = True
         used[i][j+1] = True
-        ni = i
-        nj = j+1
-        if j+1 > W:
-            ni += 1
-            nj -= W
-        ret += dfs(ni, nj, a-1)
+        ret += dfs(i, j+1, a-1)
         used[i][j] = False
         used[i][j+1] = False
     
@@ -33,22 +30,12 @@ def dfs(i, j, a):
     if a > 0 and used[i][j] == False and used[i+1][j] == False and i+1 <= H:
         used[i][j] = True
         used[i+1][j] = True
-        ni = i
-        nj = j+1
-        if j+1 > W:
-            ni += 1
-            nj -= W
-        ret += dfs(ni, nj, a-1)
+        ret += dfs(i, j+1, a-1)
         used[i][j] = False
         used[i+1][j] = False
     
     # 置かない
-    ni = i
-    nj = j+1
-    if j+1 > W:
-        ni += 1
-        nj -= W
-    ret += dfs(ni, nj, a)
+    ret += dfs(i, j+1, a)
     return ret
     
 ans = dfs(1, 1, A)

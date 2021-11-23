@@ -176,5 +176,7 @@ out/
 ### VS Code ###
 .vscode/
 
-sample-*.in
-sample-*.out
+*.in
+*.out
+in/
+out/
