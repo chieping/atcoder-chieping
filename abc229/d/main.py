@@ -1,20 +1,16 @@
-S = list(input())
+# .を1, Xを0に変換する
+A = [1 if s == "." else 0 for s in input()]
 K = int(input())
-n = len(S)
-# "."の数の累積和
-cnt = [0] * (n + 1)
-for i in range(n):
-    if S[i] == '.':
-        cnt[i+1] = cnt[i] + 1
-    else:
-        cnt[i+1] = cnt[i]
-
+n = len(A)
 ans = 0
 # 尺取り法
 r = 0
+s = 0
+# [l, r) 
 for l in range(n):
-    while r <= n-1 and cnt[r+1]-cnt[l] <= K:
-        r = r+1
-    ans = max(ans, r-l)  
-
+    while r < n and s+A[r] <= K:
+        s += A[r]
+        r += 1
+    ans = max(ans, r-l)
+    s -= A[l]
 print(ans)
