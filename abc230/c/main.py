@@ -1,23 +1,15 @@
 N, A, B = map(int, input().split())
 P, Q, R, S = map(int, input().split())
+H = Q-P+1
+W = S-R+1
+ans = [['.'] * W for i in range(H)]
+for i in range(H):
+    x = i + P
+    for j in range(W):
+        y = j + R
+        if (A - x == B - y) or (-A + x == B - y):
+        # if x-y == A-B or x+y == A+B:
+            ans[i][j] = '#'
 
-a = max(1-A, 1-B)
-b = min(N-A, N-B)
-c = max(1-A, B-N)
-d = min(N-A, B-1)
-
-for i in range(P, Q+1):
-    j1 = -1
-    j2 = -1
-    if (A+a) <= i <= (A+b):
-        j = B + (i - A) - 1
-        j1 = j
-    if (A+c) <= i <= (A+d):
-        j = B - (i - A) - 1
-        j2 = j
-    for i in range(R-1, S):
-        if i == j1 or i == j2:
-            print('#', end='')
-        else:
-            print('.', end='')
-    print()
+for l in ans:
+    print(''.join(l))
