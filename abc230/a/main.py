@@ -1,9 +1,2 @@
 N = int(input())
-
-if N < 42:
-    if N < 10:
-        print('AGC00' + str(N))
-    else:
-        print('AGC0' + str(N))
-else:
-    print('AGC0' + str(N+1))
+print('AGC%03d' % (N if N < 42 else N+1))
