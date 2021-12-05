@@ -20,7 +20,12 @@
       "id": "arc122_b",
       "label": "B",
       "title": "Insurance",
-      "url": "https://atcoder.jp/contests/arc122/tasks/arc122_b"
+      "url": "https://atcoder.jp/contests/arc122/tasks/arc122_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "arc122_c",
