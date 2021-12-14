@@ -1,26 +1,23 @@
-from collections import defaultdict
 N = int(input())
-n = 1010
+n = 1001
 B = [[0] * n for i in range(n)]
 
 for _ in range(N):
     lx, ly, rx, ry = map(int, input().split())
-    rx -= 1
-    ry -= 1
     B[lx][ly] += 1
-    B[rx+1][ly] -= 1
-    B[lx][ry+1] -= 1
-    B[rx+1][ry+1] += 1
+    B[rx][ly] -= 1
+    B[lx][ry] -= 1
+    B[rx][ry] += 1
 
 for i in range(n):
     for j in range(1, n):
-        B[i][j] = B[i][j-1] + B[i][j]
+        B[i][j] += B[i][j-1]
 
-for j in range(n):
-    for i in range(1, n):
-        B[i][j] = B[i-1][j] + B[i][j]
+for i in range(1, n):
+    for j in range(n):
+        B[i][j] += B[i-1][j]
 
-ans = defaultdict(int)
+ans = [0] * (N+1)
 
 for i in range(n):
     for j in range(n):
