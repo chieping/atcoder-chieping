@@ -1,11 +1,10 @@
-from collections import defaultdict
 N, W = map(int, input().split())
-dp = [defaultdict(int) for _ in range(N+1)]
-dp[0][0] = 0
+dp = [[0] * (W+1) for _ in range(N+1)]
 for i in range(1, N+1):
-    w, nv = map(int, input().split())
-    for k, cv in dp[i-1].items():
-        dp[i][k] = max(dp[i][k], cv)
-        if k+w <= W:
-            dp[i][k+w] = max(dp[i][k+w], cv+nv)
-print(max(dp[N].values()))
+    w, v = map(int, input().split())
+    for j in range(W+1):
+        if j-w >= 0:
+            dp[i][j] = max(dp[i-1][j], dp[i-1][j-w]+v)
+        else:
+            dp[i][j] = dp[i-1][j]
+print(dp[N][W])
