@@ -1,3 +1,5 @@
+# 最小化の最大化
+# 二部探索
 from sys import stdin
 N, L = map(int, stdin.readline().split())
 K = int(stdin.readline())
