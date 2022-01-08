@@ -19,6 +19,5 @@ for _ in range(T):
     if s % g != 0:
         print(-1)
     else:
-        ans = X * -s // g
-        ans %= n // g
+        ans = (X * -s // g) % n
         print(ans)
