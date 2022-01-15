@@ -1,5 +1,4 @@
 from collections import defaultdict
-from pprint import pprint
 import sys
 readline = sys.stdin.readline
 N, Q = map(int, readline().split())
