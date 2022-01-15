@@ -1,8 +1,7 @@
-# TLE
 N, K = map(int, input().split())
 x = N
-vis = [False] * (10**5)
 MOD = 10**5
+vis = [-1] * (10**5+1)
 
 def f(x):
     _sum = 0
@@ -11,7 +10,14 @@ def f(x):
         x //= 10
     return _sum
 
-for i in range(K):
+cnt = 0
+while cnt < K:
+    cnt += 1
     x = (x + f(x)) % MOD
+    if vis[x] != -1:
+        n = (K - cnt) // (cnt - vis[x])
+        cnt += (cnt - vis[x]) * n
+    else:
+        vis[x] = cnt
 
 print(x)
