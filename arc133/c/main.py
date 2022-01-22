@@ -1,4 +1,8 @@
-# 未提出
+# 縦の制約と横の制約それぞれで達成できる可能性のある
+# 上限の合計数を求める
+# 縦横の合計数のより小さい方は達成可能となるのでそれが答えになる
+# 証明はよくわからん
+from math import floor
 from pprint import pprint
 import sys
 readline = sys.stdin.readline
@@ -10,26 +14,19 @@ if sum(A) % K != sum(B) % K:
     print(-1)
     exit()
 
-# G = [[0] * W for _ in range(H)]
+vt = 0
+hr = 0
 
-# # 横の数値を決める
-# for i in range(H-1):
-#     a = A[i]
-#     for j in range(W-1):
-#         G[i][j] = K-1
-#     G[i][-1] = a-((W-1)*(K-1)%K)
+for i in range(H):
+    a = A[i]
+    c = (K-1) * (W-1)
+    c += (a-(c%K))%K
+    vt += c
 
-# # 最終行の数字を決める
-# for j in range(W):
-#     b = B[j]
-#     tmp = 0
-#     for i in range(H):
-#         tmp += G[i][j]
-#     G[-1][j] = b-(tmp%K)
+for i in range(W):
+    b = B[i]
+    c = (K-1) * (H-1)
+    c += (b-(c%K))%K
+    hr += c
 
-# pprint(G)
-# ans = 0
-# for i in range(H):
-#     ans += sum(G[i])
-# print(ans)
-
+print(min(vt, hr))
