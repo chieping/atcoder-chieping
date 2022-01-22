@@ -12,5 +12,5 @@ for i in range(N):
 else:
     remove = A[-1]
 
-A = list(filter(lambda a: a != remove, A))
+A = [x for x in A if x != remove]
 print(*A)
