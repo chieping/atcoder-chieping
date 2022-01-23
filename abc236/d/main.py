@@ -1,9 +1,3 @@
-from itertools import product
-from pprint import pprint
-import sys
-sys.setrecursionlimit(10**6)
-readline = sys.stdin.readline
-from pprint import pprint
 import sys
 readline = sys.stdin.readline
 N = int(readline())
@@ -14,5 +8,16 @@ for i in range(N2-1):
     for j in range(i+1, N2):
         A[i][j] = a.pop()
 
-def dfs():
-    
+ans = 0
+def calc(dancer, score):
+    if len(dancer) == 0:
+        global ans
+        ans = max(ans, score)
+        return
+    first = dancer[0]
+    for i in range(1, len(dancer)):
+        other = dancer[i]
+        calc(dancer[1:i] + dancer[i+1:], score ^ A[first][other])
+
+calc(list(range(N2)), 0)
+print(ans)
