@@ -1,4 +1,3 @@
-from pprint import pprint
 import sys
 readline = sys.stdin.readline
 N = int(readline())
@@ -11,4 +10,3 @@ for i in range(N):
         print('No')
     else:
         print('Yes' if r & a == 0 else 'No')
-
