@@ -13,10 +13,9 @@ for i, s in zip(range(N), S):
         B.append(i)
 
 B = set(B)
-ans = 0
+ans = len(R) * len(G) * len(B)
 for i in R:
     for j in G:
-        ans += len(B)
         if i < j:
             small = i
             large = j
