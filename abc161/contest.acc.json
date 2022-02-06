@@ -9,19 +9,34 @@
       "id": "abc161_a",
       "label": "A",
       "title": "ABC Swap",
-      "url": "https://atcoder.jp/contests/abc161/tasks/abc161_a"
+      "url": "https://atcoder.jp/contests/abc161/tasks/abc161_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "abc161_b",
       "label": "B",
       "title": "Popular Vote",
-      "url": "https://atcoder.jp/contests/abc161/tasks/abc161_b"
+      "url": "https://atcoder.jp/contests/abc161/tasks/abc161_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "abc161_c",
       "label": "C",
       "title": "Replacing Integer",
-      "url": "https://atcoder.jp/contests/abc161/tasks/abc161_c"
+      "url": "https://atcoder.jp/contests/abc161/tasks/abc161_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "abc161_d",
