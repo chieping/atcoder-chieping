@@ -1,5 +1,4 @@
 from collections import deque
-from pprint import pprint
 import sys
 readline = sys.stdin.readline
 N = int(readline())
@@ -32,6 +31,5 @@ for i in range(N):
         else:
             current = -1
             seq = 0
-    # print(i+1-deleted_cnt)
     print(len(Q))
 
