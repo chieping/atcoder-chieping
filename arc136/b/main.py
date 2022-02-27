@@ -4,13 +4,13 @@ sys.setrecursionlimit(10**6)
 N = int(readline())
 A = list(map(int, readline().split()))
 B = list(map(int, readline().split()))
-
-if not set(A) == set(B):
+setA = set(A)
+if not setA == set(B):
     print('No')
     exit()
 
-# 同じ数値を偶奇が異なる順番で持っていればYes
-if len(set([A[i] for i in range(0, N, 2)]).intersection(set([A[i] for i in range(1, N, 2)]))):
+# 同じ数値を持っていればYes
+if len(setA) < N:
     print('Yes')
     exit()
 
