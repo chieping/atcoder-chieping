@@ -3,19 +3,18 @@ import sys
 readline = sys.stdin.readline
 
 N, K = map(int, readline().split())
-A = list(map(int, readline().split()))
-A = [a - 1 for a in A]
-visited = [-1] * N
-visited[0] = 0
+A = [0] + list(map(int, readline().split()))
+visited = [-1] * (N+1)
+visited[1] = 0
 k = K
-now = 0
+now = 1
 while k > 0:
     k -= 1
     nxt = A[now]
-    if visited[nxt] != -1:
+    if visited[nxt] != -1 and k > N:
         cycle = K - k - visited[nxt]
         k %= cycle
     visited[nxt] = K - k
     now = nxt
 
-print(now+1)
+print(now)
