@@ -1,5 +1,5 @@
-# WA
 X, Y = map(int, input().split())
+MOD = 10**9+7
 
 # 移動回数: N
 N, r = divmod(X+Y, 3)
@@ -11,8 +11,12 @@ if r != 0:
 XN = X - N
 XY = Y - N
 
-# ansは N C XN
-MOD = 10**9+7
+if 0 > XN or 0 > XY:
+    print(0)
+    exit()
+
+# ansは N C K
+K = XN
 
 fact = [0] * (N+1)
 inv = [0] * (N+1)
@@ -27,5 +31,5 @@ for i in range(2, N+1):
     inv[i] = MOD - inv[MOD % i] * (MOD // i) % MOD
     fact_inv[i] = fact_inv[i - 1] * inv[i] % MOD
 
-ans = fact[N] * (fact_inv[XN] * fact_inv[N-XN] % MOD) % MOD
+ans = fact[N] * (fact_inv[K] * fact_inv[N-K] % MOD) % MOD
 print(ans)
