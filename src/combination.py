@@ -1,23 +1,3 @@
-X, Y = map(int, input().split())
-MOD = 10**9+7
-
-# 移動回数: N
-N, r = divmod(X+Y, 3)
-if r != 0:
-    print(0)
-    exit()
-
-# N回の移動のうち、X方向へはXN回、Y方向へはXY回移動する
-XN = X - N
-XY = Y - N
-
-if 0 > XN or 0 > XY:
-    print(0)
-    exit()
-
-# ansは N C K
-K = XN
-
 class Combination:
 
     def __init__(self, n: int, mod: int) -> None:
@@ -38,6 +18,3 @@ class Combination:
         if k < 0 or k > n:
             return 0
         return self.fact[n] * (self.fact_inv[k] * self.fact_inv[n-k] % self.mod) % self.mod
-
-C = Combination(N, MOD)
-print(C.c(N, K))
