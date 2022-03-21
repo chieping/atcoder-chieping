@@ -11,7 +11,7 @@ for _ in range(M):
 
 # 文字列Sに関する良いパス、かつ最後がlstのパス
 # のうち最短のものの長さ
-opt = [[0] * 17 for _ in [0] * (1<<17)]
+opt = [[0] * N for _ in [0] * (1<<N)]
 que = deque()
 
 for i in range(N):
@@ -26,11 +26,4 @@ while len(que) > 0:
             opt[msk2][to] = opt[msk][lst] + 1
             que.append((msk2, to))
 
-ans = 0
-for msk in range(1, 1<<N):
-    mi = 10**18
-    for lst in range(N):
-        mi = min(mi, opt[msk][lst])
-    ans += mi
-
-print(ans)
+print(sum(min(opt[msk]) for msk in range(1, 1<<N)))
