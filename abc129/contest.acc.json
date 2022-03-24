@@ -9,13 +9,23 @@
       "id": "abc129_a",
       "label": "A",
       "title": "Airplane",
-      "url": "https://atcoder.jp/contests/abc129/tasks/abc129_a"
+      "url": "https://atcoder.jp/contests/abc129/tasks/abc129_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "abc129_b",
       "label": "B",
       "title": "Balance",
-      "url": "https://atcoder.jp/contests/abc129/tasks/abc129_b"
+      "url": "https://atcoder.jp/contests/abc129/tasks/abc129_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "abc129_c",
@@ -32,7 +42,12 @@
       "id": "abc129_d",
       "label": "D",
       "title": "Lamp",
-      "url": "https://atcoder.jp/contests/abc129/tasks/abc129_d"
+      "url": "https://atcoder.jp/contests/abc129/tasks/abc129_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "abc129_e",
