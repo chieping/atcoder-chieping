@@ -42,7 +42,12 @@
       "id": "abc200_d",
       "label": "D",
       "title": "Happy Birthday! 2",
-      "url": "https://atcoder.jp/contests/abc200/tasks/abc200_d"
+      "url": "https://atcoder.jp/contests/abc200/tasks/abc200_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "abc200_e",
