@@ -1,0 +1,50 @@
+{
+  "contest": {
+    "id": "arc118",
+    "title": "AtCoder Regular Contest 118",
+    "url": "https://atcoder.jp/contests/arc118"
+  },
+  "tasks": [
+    {
+      "id": "arc118_a",
+      "label": "A",
+      "title": "Tax Included Price",
+      "url": "https://atcoder.jp/contests/arc118/tasks/arc118_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.py"
+      }
+    },
+    {
+      "id": "arc118_b",
+      "label": "B",
+      "title": "Village of M People",
+      "url": "https://atcoder.jp/contests/arc118/tasks/arc118_b"
+    },
+    {
+      "id": "arc118_c",
+      "label": "C",
+      "title": "Coprime Set",
+      "url": "https://atcoder.jp/contests/arc118/tasks/arc118_c"
+    },
+    {
+      "id": "arc118_d",
+      "label": "D",
+      "title": "Hamiltonian Cycle",
+      "url": "https://atcoder.jp/contests/arc118/tasks/arc118_d"
+    },
+    {
+      "id": "arc118_e",
+      "label": "E",
+      "title": "Avoid Permutations",
+      "url": "https://atcoder.jp/contests/arc118/tasks/arc118_e"
+    },
+    {
+      "id": "arc118_f",
+      "label": "F",
+      "title": "Growth Rate",
+      "url": "https://atcoder.jp/contests/arc118/tasks/arc118_f"
+    }
+  ]
+}
