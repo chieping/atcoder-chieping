@@ -10,8 +10,5 @@ for n in range(10):
                 stop[j] = True
                 break
         i += 1
-    ans = min(ans, i)
-
-
-
-print(ans - 1)
+    ans = min(ans, i - 1)
+print(ans)

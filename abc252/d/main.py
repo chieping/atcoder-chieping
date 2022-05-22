@@ -1,15 +1,13 @@
-# TLE
 from collections import Counter
 N = int(input())
 A = list(map(int, input().split()))
-values = list(Counter(A).values())
-Len = len(values)
+B = list(Counter(A).values())
+M = len(B)
 ans = 0
-Sum = N
-for i, iv in enumerate(values):
-    m_sum = iv
-    for j in values[i+1:]:
-        m_sum += j
-        ans += iv * j * (Sum-m_sum)
-
-print(ans//2)
+i_sum = 0
+k_sum = N - B[0]
+for j in range(1, M-1):
+    i_sum += B[j-1]
+    k_sum -= B[j]
+    ans += i_sum * B[j] * k_sum
+print(ans)

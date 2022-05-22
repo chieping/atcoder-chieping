@@ -8,29 +8,32 @@ for i in range(1, M+1):
     edge[a].append((c, b, i))
     edge[b].append((c, a, i))
 
-marked = [False] * N
-marked_count = 0
+ans = set()
 
-marked[0] = True
-marked_count = 1
+def dijkstra(v):
+    Q = []
+    dist = [-1] * N
+    done = [False] * N
+    dist[0] = 0
+    done[0] = True
+    for c, j, i in edge[0]:
+        heappush(Q, (c, j, i))
+    
+    while len(Q):
+        c, j, i = heappop(Q)
 
-Q = []
-ans = []
-for c, j, i in edge[0]:
-    heappush(Q, (c, j, i))
-
-while marked_count < N:
-    c, v, i = heappop(Q)
-
-    if marked[v]:
-        continue
-    marked[v] = True
-    marked_count += 1
-    ans.append(i)
-
-    for cc, vv, ii in edge[v]:
-        if marked[vv]:
+        if done[j]:
             continue
-        heappush(Q, (cc, vv, ii))
+        done[j] = True
+
+        ans.add(i)
+
+        for cc, jj, ii in edge[j]:
+            if dist[jj] == -1 or dist[jj] > dist[j] + cc:
+                dist[jj] = dist[j] + cc
+                heappush(Q, (dist[jj], jj, ii))
+
+for v in range(1, N):
+    dijkstra(v)
 
 print(*ans)
