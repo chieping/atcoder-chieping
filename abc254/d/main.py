@@ -1,25 +1,13 @@
 N = int(input())
-
-
-ans = 0
-
+cnt = [0] * (N+1)
 for i in range(1, N+1):
-    h = i * i
-
-    a = []
-
-    # 約数列挙
+    val = i
     j = 2
-    while j <= N:
-        d, r = divmod(h, j)
-        if r == 0:
-            a.append(j)
-            h = d
-        j += 1
-    print(a)
-    ans += len(a) + 1
-        
+    while j*j <= val:
+        if val % (j*j) == 0:
+            val //= j*j
+        else:
+            j += 1
+    cnt[val] += 1
 
-
-
-print(ans)
+print(sum(c*c for c in cnt))
