@@ -1,6 +1,3 @@
-import math
-
-
 N, K = map(int, input().split())
 A = list(map(int, input().split()))
 A = [a-1 for a in A]
@@ -11,15 +8,10 @@ Y = [0] * N
 for i in range(N):
     X[i], Y[i] = map(int, input().split())
 
-ans = [10**18] * N
-for i in range(K):
-    k = A[i]
-    ans_l = 0
-    for j in range(N):
-        if j in B:
-            # print(k, j, math.sqrt(((X[k] - X[j])**2) + ((Y[k] - Y[j])**2)))
-            ans[j] = min(ans[j], math.sqrt(((X[k] - X[j])**2) + ((Y[k] - Y[j])**2)))
-        else:
-            ans[j] = 0
-
-print(max(ans))
+ans = 0
+for i in B:
+    lans = 10**18
+    for k in A:
+        lans = min(lans, (X[k]-X[i])**2 + (Y[k]-Y[i])**2)
+    ans = max(ans, lans)
+print(ans**(1/2))
