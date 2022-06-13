@@ -32,7 +32,12 @@
       "id": "abc084_d",
       "label": "D",
       "title": "2017-like Number",
-      "url": "https://atcoder.jp/contests/abc084/tasks/abc084_d"
+      "url": "https://atcoder.jp/contests/abc084/tasks/abc084_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     }
   ]
 }
