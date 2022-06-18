@@ -36,13 +36,7 @@ class UnionFind:
         self.data[x] = (min(self.data[x][0], self.data[y][0]), max(self.data[x][1], self.data[y][1]))
         pass
 
-
 N = int(input())
-# L = [0] * N
-# R = [0] * N
-# for i in range(N):
-#     L[i], R[i] = map(int, input().split())
-
 LR = []
 for i in range(N):
     l, r = map(int, input().split())
@@ -50,34 +44,21 @@ for i in range(N):
 
 uf = UnionFind(N, LR)
 
-
-# # Rが小さい順にソート
-# LR.sort(key=lambda x: (x[2], x[1]))
-
 # Lが小さい順にソート
 LR.sort(key=lambda x: (x[1], -x[2]))
-
 
 lastI = -1
 maxR = -1
 for i, l, r in LR:
     if l <= maxR:
-        # かぶってる
         uf.union(i, lastI)
     maxR = max(maxR, r)
     lastI = i
-
-# print(uf.parents)
-
 
 ans = []
 for i in range(N):
     if uf.parents[i] < 0:
         ans.append(uf.data[i])
-
 ans.sort()
-
 for a in ans:
     print(*a)
-
-    
