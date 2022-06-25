@@ -1,47 +1,18 @@
-from bisect import bisect, bisect_left
-from heapq import heappush
-
-
+from collections import defaultdict
 N = int(input())
-S = input()
+S = list(map(int, list(input())))
 W = list(map(int, input().split()))
-
-
-adult = []
-a_cnt = 0
-kid = []
-k_cnt = 0
-
-for i in range(N):
-    if S[i] == '1':
-        a_cnt += 1
-        adult.append(W[i])
-    else:
-        k_cnt += 1
-        kid.append(W[i])
-
-adult.sort()
-kid.sort()
-# print(adult)
-# print(kid)
-ans = 0
-prev = 0
-for i, a in enumerate(adult):
-    j = bisect_left(kid, a)
-    # print('a', a_cnt-i, j)
-    ans = max(ans, a_cnt-i+j)
-for i, k in enumerate(kid):
-    if prev == k:
-        continue
-    l = bisect_left(adult, k)
-    # print('k', a_cnt-l, i)
-    ans = max(ans, a_cnt-l+i)
-
-    # +1
-    l = bisect_left(adult, k+1)
-    # print('k(+1)', a_cnt-l, i+1)
-    ans = max(ans, a_cnt-l+i+1)
-    
-    prev = k
-
+X = defaultdict(list)
+for i, w in enumerate(W):
+    X[w].append(i)
+# 0のときは全員大人と判定される
+now = S.count(1)
+ans = now
+for w in sorted(X.keys()):
+    for i in X[w]:
+        if S[i] == 0:
+            now += 1
+        else:
+            now -= 1
+    ans = max(ans, now)
 print(ans)
