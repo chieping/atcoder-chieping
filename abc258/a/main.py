@@ -1,9 +1,7 @@
 K = int(input())
-h = 21
-m = K
+H = 21
+M = K
 if K >= 60:
-    h += 1
-    m -= 60
-
-print(f'{h}:%02d' % m)
-
+    H += 1
+    M -= 60
+print(f'{H:02}:{M:02}')
