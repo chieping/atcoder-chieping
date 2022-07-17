@@ -1,27 +1,21 @@
 N, X, Y, Z = map(int, input().split())
 A = list(map(int, input().split()))
 B = list(map(int, input().split()))
-used = [False] * N
+admission = [False] * N
 ABI = list(zip(A, B, range(N)))
 
-ABI.sort(key=lambda x: x[0], reverse=True)
-for a, b, i in ABI:
-    if X > 0:
-        used[i] = True
-        X -= 1
+def calc(capacity, fn):
+    cap = capacity
+    ABI.sort(key=fn, reverse=True)
+    for _a, _b, i in ABI:
+        if not admission[i] and cap > 0:
+            admission[i] = True
+            cap -= 1
 
-ABI.sort(key=lambda x: x[1] * 1000 - x[2], reverse=True)
-for a, b, i in ABI:
-    if not used[i] and Y > 0:
-        used[i] = True
-        Y -= 1
+calc(X, lambda x: x[0] * 1000 - x[2])
+calc(Y, lambda x: x[1] * 1000 - x[2])
+calc(Z, lambda x: (x[0] + x[1]) * 1000 - x[2])
 
-ABI.sort(key=lambda x: (x[0] + x[1]) * 1000 - x[2], reverse=True)
-for a, b, i in ABI:
-    if not used[i] and Z > 0:
-        used[i] = True
-        Z -= 1
-
-for i, flag in enumerate(used, 1):
+for i, flag in enumerate(admission, 1):
     if flag:
         print(i)
