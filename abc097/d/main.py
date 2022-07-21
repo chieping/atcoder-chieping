@@ -1,6 +1,5 @@
 from collections import defaultdict
 
-
 class UnionFind:
     def __init__(self, n: int) -> None:
         self.parents = [-1] * n
@@ -45,24 +44,15 @@ class UnionFind:
 
 N, M = map(int, input().split())
 P = list(map(lambda x: int(x)-1, input().split()))
-Q = [P[p] for p in P]
 X = [0] * M
 Y = [0] * M
 for i in range(M):
     X[i], Y[i] = map(lambda x: int(x)-1, input().split())
-
 uf = UnionFind(N)
-
 for x, y in zip(X, Y):
     uf.union(x, y)
-
 ans = 0
-# print(P)
-# print(Q)
 for group in uf.groups().values():
-    ary = []
-    for g in group:
-        ary.append(P[g])
-    ans += len(set(ary).intersection(group))
-
+    q = {P[g] for g in group}
+    ans += len(q.intersection(group))
 print(ans)
