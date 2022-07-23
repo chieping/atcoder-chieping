@@ -1,3 +1,4 @@
+# WA
 N, C = map(int, input().split())
 X = C
 T = [0] * N
